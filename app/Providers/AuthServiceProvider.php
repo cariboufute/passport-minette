@@ -27,6 +27,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         Passport::routes();
+        Passport::enableImplicitGrant();
 
         Gate::define('is-self', function ($user) {
             return $user->name === User::MINETTE;
